@@ -1,3 +1,8 @@
+let timerInterval;
+let totalTime;
+let isTimerRunning = false;
+let remainingTime = 0;
+
 document.addEventListener("DOMContentLoaded", function () {
   const select = document.getElementById("minutes");
 
@@ -17,34 +22,63 @@ function startTimer() {
   let timerDisplay = document.getElementById("timer");
   let audio = document.getElementById("audio");
   let bell_message = document.getElementById("bell");
-  let totalTime = inputMinutes * 60;
+  let select = document.getElementById("minutes");
 
-  if (inputMinutes > 60 || inputMinutes < 5) {
-    alert("Error");
+  if (isTimerRunning) {
+    clearInterval(timerInterval);
+    isTimerRunning = false;
+
+    remainingTime = totalTime;
+
+    document.title = "Temporizador detenido";
+    bell_message.textContent = "Temporizador detenido";
+    document.getElementById("startStopButton").textContent =
+      "Reanudar Temporizador";
   } else {
-    bell_message.textContent = "La campana sonará en " + inputMinutes + " minutos";
-    let timerInterval = setInterval(() => {
-      window.addEventListener("beforeunload", function (e) {
-        e.preventDefault();
-        e.returnValue = "";
-        return "";
-      });
+    if (remainingTime === 0) {
+      totalTime = inputMinutes * 60;
+    } else {
+      totalTime = remainingTime; 
+    }
 
-      let minutes = Math.floor(totalTime / 60);
-      let seconds = totalTime % 60;
+    if (inputMinutes > 60 || inputMinutes < 5 || inputMinutes % 5 != 0) {
+      alert("Error");
+    } else {
+      bell_message.textContent =
+        "Tiempo establecido en " + inputMinutes + " minutos";
 
-      document.title = timerDisplay.textContent = `${minutes
-        .toString()
-        .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+      timerInterval = setInterval(() => {
+        window.addEventListener("beforeunload", function (e) {
+          e.preventDefault();
+          e.returnValue = "";
+          return "";
+        });
 
-      if (totalTime <= 0) {
-        clearInterval(timerInterval);
-        document.title = "¡El tiempo ha finalizado!";
-        audio.play();
-        bell_message.textContent = "El tiempo ha finalizado";
-      } else {
-        totalTime--;
-      }
-    }, 1000);
+        let minutes = Math.floor(totalTime / 60);
+        let seconds = totalTime % 60;
+
+        document.title = timerDisplay.textContent = `${minutes
+          .toString()
+          .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+
+        if (totalTime <= 0) {
+          clearInterval(timerInterval);
+          document.title = "¡El tiempo ha finalizado!";
+          audio.play();
+          bell_message.textContent = "El tiempo ha finalizado";
+          document.getElementById("startStopButton").textContent =
+            "Iniciar Temporizador";
+
+          select.style.display = "";
+        } else {
+          totalTime--;
+          select.style.display = "none";
+        }
+      }, 1000);
+
+      isTimerRunning = true;
+      document.getElementById("startStopButton").textContent =
+        "Detener Temporizador";
+    }
   }
 }
