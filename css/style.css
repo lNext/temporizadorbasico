@@ -23,7 +23,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     background-color: #2c303e;
-    max-width: 30%;
+    max-width: 45%;
     width: 100%;
     /* Ensure it takes full width on smaller screens */
 }
