@@ -22,8 +22,7 @@ function startTimer() {
   if (inputMinutes > 60) {
     alert("Error");
   } else {
-    bell_message.textContent =
-      "La campana sonará en " + inputMinutes + " minutos";
+    bell_message.textContent = "La campana sonará en " + inputMinutes + " minutos";
     let timerInterval = setInterval(() => {
       window.addEventListener("beforeunload", function (e) {
         e.preventDefault();
@@ -43,13 +42,6 @@ function startTimer() {
         document.title = "¡El tiempo ha finalizado";
         audio.play();
         bell_message.textContent = "El tiempo ha finalizado";
-
-        if (Notification.permission === "granted") {
-          new Notification("¡El tiempo ha finalizado!", {
-            body: "Tu temporizador ha llegado a cero.",
-            icon: "../img/clock.png", 
-          });
-        }
       } else {
         totalTime--;
       }
