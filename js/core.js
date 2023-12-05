@@ -23,6 +23,7 @@ function startTimer() {
   let audio = document.getElementById("audio");
   let bell_message = document.getElementById("bell");
   let select = document.getElementById("minutes");
+  let selecciona_minutos = document.getElementById("selecciona_minutos");
 
   if (isTimerRunning) {
     clearInterval(timerInterval);
@@ -70,9 +71,11 @@ function startTimer() {
             "Iniciar Temporizador";
 
           select.style.display = "";
+          selecciona_minutos.style.display = "";
         } else {
           totalTime--;
           select.style.display = "none";
+          selecciona_minutos.style.display = "none";
         }
       }, 1000);
 
