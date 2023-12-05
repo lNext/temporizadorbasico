@@ -100,7 +100,11 @@ audio {
     display: none;
 }
 
-/* Media Query for smaller screens */
+span{
+    font-size: 0.8rem;
+    color: #CCCCCC;
+}
+
 @media screen and (max-width: 768px) {
     .container {
         padding: 15px;
