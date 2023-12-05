@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/clock.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Temporizador básico</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Temporizador básico</h1>
+        <p>Controla tu tiempo con este temporizador.<br> Tienes disponible desde 5 minutos hasta 60 minutos.</p>
+        <section>
+            <label for="minutes">Selecciona los minutos</label>
+            <select name="" id="minutes"></select>
+            <button onclick="startTimer()">Iniciar Temporizador</button>
+        </section>
+        <p id="bell"></p>
+        <p id="timer">00:00</p>
+        <audio id="audio" src="sounds/bell_sound.wav"></audio>
+    </div>
+
+    <script src="js/core.js"></script>
+</body>
+
+</html>
