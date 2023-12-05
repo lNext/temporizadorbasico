@@ -19,7 +19,7 @@ function startTimer() {
   let bell_message = document.getElementById("bell");
   let totalTime = inputMinutes * 60;
 
-  if (inputMinutes > 60) {
+  if (inputMinutes > 60 || inputMinutes < 5) {
     alert("Error");
   } else {
     bell_message.textContent = "La campana sonará en " + inputMinutes + " minutos";
