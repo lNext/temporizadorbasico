@@ -39,7 +39,7 @@ function startTimer() {
 
       if (totalTime <= 0) {
         clearInterval(timerInterval);
-        document.title = "¡El tiempo ha finalizado";
+        document.title = "¡El tiempo ha finalizado!";
         audio.play();
         bell_message.textContent = "El tiempo ha finalizado";
       } else {
