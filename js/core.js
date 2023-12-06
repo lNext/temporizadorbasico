@@ -108,6 +108,7 @@ function handleTimerFinish() {
 
   select.style.display = "";
   seleccionaMinutos.style.display = "";
+  resetButton.style.display = "none";
 }
 
 // Función para reiniciar el temporizador
