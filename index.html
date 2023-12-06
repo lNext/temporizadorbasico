@@ -12,11 +12,12 @@
 <body>
     <div class="container">
         <h1>Temporizador básico online</h1>
-        <p>Controla tu tiempo con este temporizador.<br> Tienes disponible desde 5 minutos hasta 60 minutos.</p>
+        <p>Administra tu tiempo de estudio o trabajo a tu ritmo <br> Te avisaremos cuando sea momento de tomar un descanso.</p>
         <section>
-            <label id="selecciona_minutos" for="minutes">Selecciona los minutos</label>
-            <select name="" id="minutes"></select>
+            <label id="selecciona_minutos" for="minutes">Ingresa el tiempo en minutos</label>
+            <input type="text" id="minutes" placeholder="Ingresa los minutos"></input>
             <button id="startStopButton" onclick="startTimer()">Iniciar Temporizador</button>
+            <button id="resetButton" onclick="resetTimer()">Reiniciar Temporizador</button>
         </section>
         <p id="bell"></p>
         <p id="timer">00:00</p>
