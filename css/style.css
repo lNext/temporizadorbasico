@@ -26,29 +26,23 @@ body {
     background-color: #2c303e;
     max-width: 45%;
     width: 100%;
-    /* Ensure it takes full width on smaller screens */
 }
 
 h1 {
     font-size: 2rem;
-    /* Adjusted font size */
     margin-bottom: 15px;
-    /* Adjusted margin */
     color: #fff;
 }
 
 p {
     font-size: 1rem;
-    /* Adjusted font size */
     line-height: 1.5;
     margin-bottom: 20px;
-    /* Adjusted margin */
     color: #aaa;
 }
 
 section {
     margin-bottom: 20px;
-    /* Adjusted margin */
 }
 
 label {
@@ -68,7 +62,6 @@ input {
 
 button {
     padding: 11px 20px;
-    /* Adjusted padding */
     font-size: 1rem;
     background-color: #3498db;
     color: white;
@@ -84,7 +77,6 @@ button:hover {
 
 #resetButton{
     padding: 11px 20px;
-    /* Adjusted padding */
     font-size: 1rem;
     background-color: red;
     color: white;
