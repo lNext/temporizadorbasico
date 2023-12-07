@@ -77,7 +77,7 @@ button:hover {
     background-color: #2980b9;
 }
 
-#resetButton{
+#resetButton {
     padding: 11px 20px;
     font-size: 1rem;
     background-color: red;
@@ -112,9 +112,36 @@ audio {
     display: none;
 }
 
-span{
+span {
     font-size: 0.8rem;
     color: #CCCCCC;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+}
+
+#minutesConvert {
+    margin-top: 10px;
+    color: #fff
+}
+
+h2 {
+    margin-bottom: 10px;
 }
 
 @media screen and (max-width: 768px) {

@@ -12,7 +12,8 @@
 <body>
     <div class="container">
         <h1>Temporizador básico online</h1>
-        <p>Administra el tiempo de estudio o trabajo a tu ritmo <br> Te avisaremos cuando sea momento de tomar un descanso.</p>
+        <p>Administra el tiempo de estudio o trabajo a tu ritmo <br> Te avisaremos cuando sea momento de tomar un
+            descanso.</p>
         <section>
             <label id="selecciona_minutos" for="minutes">Ingresa el tiempo en minutos</label>
             <input type="text" id="minutes" placeholder="Minutos"></input>
@@ -21,9 +22,17 @@
         </section>
         <p id="bell"></p>
         <p id="timer">00:00</p>
-        <span>¿Tienes alguna sugerencia para mejorar nuestra plataforma? <br> ¡Nos encantaría conocer tu opinión! Por favor, contáctanos a través de <br> sebastian.contactoweb@gmail.com</span>
+        <section>
+            <h2>Convierte de horas a minutos</h2>
+            <input type="text" id="hoursToConvert" placeholder="Horas"></input>
+            <button id="startStopButton" onclick="convertTime()">Convertir</button>
+            <p id="minutesConvert"></p>
+        </section>
+        <span>¿Tienes alguna sugerencia para mejorar nuestra plataforma? <br> ¡Nos encantaría conocer tu opinión! Por
+            favor, contáctanos a través de <br> sebastian.contactoweb@gmail.com</span>
         <audio id="audio" src="sounds/bell_sound.wav"></audio>
     </div>
+
 
     <script src="js/core.js"></script>
 </body>

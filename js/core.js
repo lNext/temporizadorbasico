@@ -44,14 +44,22 @@ function handleTimerStart(inputMinutes) {
   if (isNaN(inputMinutes) || inputMinutes === "") {
     alert("Por favor ingresa el tiempo");
   } else {
+    if (inputMinutes >= 60) {
+      inputMinutes = inputMinutes / 60;
+      bellMessage.textContent = `Tiempo establecido en ${inputMinutes} hora(s)`;
+    } else {
+      inputMinutes = inputMinutes;
+      bellMessage.textContent = `Tiempo establecido en ${inputMinutes} minutos`;
+    }
+
     select.style.display = "none";
     seleccionaMinutos.style.display = "none";
-    bellMessage.textContent = `Tiempo establecido en ${inputMinutes} minutos`;
     resetButton.style.display = "";
 
     timerInterval = setInterval(updateTimer, 1000);
     isTimerRunning = true;
-    document.getElementById("startStopButton").textContent = "Detener Temporizador";
+    document.getElementById("startStopButton").textContent =
+      "Detener Temporizador";
   }
 }
 
@@ -82,19 +90,22 @@ function updateTimer() {
 function handleTimerStop() {
   document.title = "Temporizador detenido";
   bellMessage.textContent = "Temporizador detenido";
-  document.getElementById("startStopButton").textContent = "Reanudar Temporizador";
+  document.getElementById("startStopButton").textContent =
+    "Reanudar Temporizador";
 }
 
 // Función para actualizar el temporizador en la interfaz
 function updateTimerDisplay(hours, minutes, seconds) {
   if (hours > 0) {
-    document.title = timerDisplay.textContent = `${hours.toString().padStart(2, "0")}:${minutes
+    document.title = timerDisplay.textContent = `${hours
       .toString()
-      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-  } else {
-    document.title = timerDisplay.textContent = `${minutes.toString().padStart(2, "0")}:${seconds
+      .padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds
       .toString()
       .padStart(2, "0")}`;
+  } else {
+    document.title = timerDisplay.textContent = `${minutes
+      .toString()
+      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   }
 }
 
@@ -104,7 +115,8 @@ function handleTimerFinish() {
   document.title = "¡El tiempo ha finalizado!";
   audio.play();
   bellMessage.textContent = "El tiempo ha finalizado";
-  document.getElementById("startStopButton").textContent = "Iniciar Temporizador";
+  document.getElementById("startStopButton").textContent =
+    "Iniciar Temporizador";
 
   select.style.display = "";
   seleccionaMinutos.style.display = "";
@@ -118,7 +130,8 @@ function resetTimer() {
   remainingTime = 0;
 
   document.title = "Temporizador reiniciado";
-  document.getElementById("startStopButton").textContent = "Iniciar Temporizador";
+  document.getElementById("startStopButton").textContent =
+    "Iniciar Temporizador";
   timerDisplay.textContent = "00:00";
   document.getElementById("minutes").value = "";
 
@@ -126,4 +139,16 @@ function resetTimer() {
   select.style.display = "";
   seleccionaMinutos.style.display = "";
   resetButton.style.display = "none";
+}
+
+//Función para convertir de horas a minutos
+function convertTime() {
+  let hoursToConvert = document.getElementById("hoursToConvert").value;
+  let minutesConvert = document.getElementById("minutesConvert");
+  let resultMinutes = hoursToConvert * 60;
+  if (isNaN(hoursToConvert) || hoursToConvert === "") {
+    alert("Ingresa un valor válido a convertir");
+  } else {
+    minutesConvert.innerHTML = resultMinutes + " minutos";
+  }
 }
