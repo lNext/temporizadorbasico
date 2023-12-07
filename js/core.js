@@ -14,6 +14,7 @@ const seleccionaMinutos = document.getElementById("selecciona_minutos");
 
 // Ocultar el botón de reinicio al inicio
 resetButton.style.display = "none";
+timerDisplay.innerHTML = "00:00"
 
 // Función para iniciar o detener el temporizador
 function startTimer() {
