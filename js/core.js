@@ -144,12 +144,14 @@ function resetTimer() {
 
 //Función para convertir de horas a minutos
 function convertTime() {
-  let hoursToConvert = document.getElementById("hoursToConvert").value;
+  let hoursToConvert = document.getElementById("hoursToConvert");
   let minutesConvert = document.getElementById("minutesConvert");
-  let resultMinutes = hoursToConvert * 60;
-  if (isNaN(hoursToConvert) || hoursToConvert === "") {
+  let resultMinutes = hoursToConvert.value * 60;
+  if (isNaN(hoursToConvert.value) || hoursToConvert.value === "") {
     alert("Ingresa un valor válido a convertir");
+    hoursToConvert.value = '';
   } else {
-    minutesConvert.innerHTML = resultMinutes + " minutos";
+    minutesConvert.innerHTML = hoursToConvert.value + ' hora(s) es igual a: '+ resultMinutes + " minutos";
+    hoursToConvert.value = '';
   }
 }
