@@ -4,7 +4,7 @@ let totalTime;
 let isTimerRunning = false;
 let remainingTime = 0;
 
-// Elementos del DOM
+// Elementos del DOM 
 const resetButton = document.getElementById("resetButton");
 const select = document.getElementById("minutes");
 const timerDisplay = document.getElementById("timer");
